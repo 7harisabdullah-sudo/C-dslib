@@ -1,3 +1,5 @@
+A minimalist, double-ended vector in C with power-of-two resizing and zero runtime checks. Designed for mature C programmers who value performance and clarity.
+
 .h documentation:
 
 1) "enum devectorBufferState" is majorly a return value which tells whether the buffer state is valid or invalid (which can only be a consequence of resize failure(MEMORY_LIMIT_REACHED)).
