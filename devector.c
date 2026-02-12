@@ -86,8 +86,8 @@ static devectorBufferState devector_retreat(devector* ptr, size_t* idx) {
 
     *idx = (*idx) ? *idx - 1 : ptr->capacity - 1;
 
-    if (devector_size(ptr) + MIN_CAPACITY == ptr->capacity / 2) {
-       return devector_resize(ptr, ptr->capacity / 2);
+    if (devector_size(ptr) + MIN_CAPACITY == ptr->capacity / 4) {
+       return devector_resize(ptr, ptr->capacity / 4);
     }
 
     return VALID_BUFFER_STATE;
