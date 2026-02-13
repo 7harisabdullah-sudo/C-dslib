@@ -22,7 +22,7 @@ A minimalist, double-ended vector in C with power-of-two resizing and zero runti
 
 1) Before diving into .c, I want you to understand the two kinds of data representation in circular buffer (defining: **[E]** to be a sub-array of elements and **[O]** to be a sub-array of 0s):
 - **contiguous case:** [O] [front] [E] [back] [O]
-- **wrap-around:** [E] [back] [O] [front] [E]
+- **wrap-around case:** [E] [back] [O] [front] [E]
 
 2) The third case is when the front meets the back. This can also be handled as a wrap-around case.
 
