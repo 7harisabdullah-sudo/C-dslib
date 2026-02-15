@@ -11,11 +11,11 @@
 #define DEVECTOR_POINTER(dvptr, index) ((char*)dvptr->buffer + (index) * dvptr->elem_size)
 
 void* devector_at(const devector* ptr, size_t i) {
-    return DEVECTOR_POINTER(ptr, (ptr->capacity - ptr->head + i) % ptr->capacity);
+    return DEVECTOR_POINTER(ptr, (ptr->capacity - ptr->head + i) & (ptr->capacity - 1));
 }
 
 size_t devector_size(const devector* ptr) {
-    return (ptr->tail + ptr->head) % ptr->capacity;
+    return (ptr->tail + ptr->head) & (ptr->capacity - 1);
 }
 
 static devectorBufferState devector_resize(devector* ptr, size_t ncap) {
@@ -67,7 +67,7 @@ static devectorBufferState devector_resize(devector* ptr, size_t ncap) {
 
 static devectorBufferState devector_advance(devector* ptr, size_t* idx) {
 
-    *idx = (*idx + 1) % ptr->capacity;
+    *idx = (*idx + 1) & (ptr->capacity - 1);
 
     if ((ptr->capacity - 1) - ptr->head == ptr->tail) {
 
