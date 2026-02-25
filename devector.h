@@ -21,7 +21,7 @@ typedef struct devector {
 } devector;
 
 size_t devector_size(const devector* ptr);
-void* devector_at( const devector* ptr, size_t i);
+void* devector_get( const devector* ptr, size_t i);
 
 devectorBufferState devector_push_front(devector* ptr, const void* src);
 devectorBufferState devector_push_back(devector* ptr, const void* src);
