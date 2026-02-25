@@ -34,7 +34,7 @@ SOFTWARE.
 
 #define DEVECTOR_POINTER(dvptr, index) ((char*)dvptr->buffer + (index) * dvptr->elem_size)
 
-void* devector_at(const devector* ptr, size_t i) {
+void* devector_get(const devector* ptr, size_t i) {
     return DEVECTOR_POINTER(ptr, (ptr->capacity - ptr->head + i) & (ptr->capacity - 1));
 }
 
